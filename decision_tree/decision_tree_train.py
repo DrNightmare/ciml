@@ -1,4 +1,3 @@
-# A Course In Machine Learning - and 2
 import csv
 from collections import Counter, OrderedDict
 from typing import List
