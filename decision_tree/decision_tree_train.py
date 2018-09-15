@@ -63,7 +63,7 @@ def decision_tree_test(node: Node, features: set, example):
             return decision_tree_test(node.right, features, example)
 
 
-def get_data(path_to_data='/home/arvind/ciml/decision_tree/courses_data_train.csv'):
+def get_data(path_to_data='/home/arvind/ciml/data/courses_data_train.csv'):
     with open(path_to_data) as f:
         reader = csv.DictReader(f)
         features = set(reader.fieldnames)
@@ -86,7 +86,7 @@ def get_accuracy(train_data, test_data, features):
         if data_point['target'] == prediction:
             correct_predictions = correct_predictions + 1
 
-    return (float(correct_predictions) / len(train_data)) * 100
+    return (float(correct_predictions) / len(train_data))
 
 
 data, features = get_data()

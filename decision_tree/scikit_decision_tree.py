@@ -3,7 +3,7 @@ from sklearn import tree, metrics
 from sklearn.preprocessing import LabelEncoder
 
 
-def get_data(path_to_data='/home/arvind/ciml/decision_tree/courses_data_train.csv'):
+def get_data(path_to_data='/home/arvind/ciml/data/courses_data_train.csv'):
     df = pd.read_csv(path_to_data)
 
     # Using LabelEncoder here to convert categorical values to numeric
