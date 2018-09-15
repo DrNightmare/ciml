@@ -1,6 +1,6 @@
-import csv
 from collections import Counter, OrderedDict
 from typing import List
+from data.utils import get_data
 
 
 class Node:
@@ -61,20 +61,6 @@ def decision_tree_test(node: Node, features: set, example):
             return decision_tree_test(node.left, features, example)
         else:
             return decision_tree_test(node.right, features, example)
-
-
-def get_data(path_to_data='/home/arvind/ciml/data/courses_data_train.csv'):
-    with open(path_to_data) as f:
-        reader = csv.DictReader(f)
-        features = set(reader.fieldnames)
-
-        if 'target' in features:
-            features.remove('target')
-        if 'rating' in features:
-            features.remove('rating')
-
-        data = [row for row in reader]
-        return data, features
 
 
 def get_accuracy(train_data, test_data, features):

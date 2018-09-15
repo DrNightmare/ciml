@@ -1,22 +1,7 @@
-import pandas as pd
 from sklearn import tree, metrics
-from sklearn.preprocessing import LabelEncoder
+from data.utils import get_data_numeric
 
-
-def get_data(path_to_data='/home/arvind/ciml/data/courses_data_train.csv'):
-    df = pd.read_csv(path_to_data)
-
-    # Using LabelEncoder here to convert categorical values to numeric
-    le = LabelEncoder()
-    for column in df.columns:
-        df[column] = le.fit_transform(df[column])
-
-    x = df.drop(['target', 'rating'], axis=1).values
-    y = df['target'].values
-    return x, y
-
-
-x, y = get_data()
+x, y = get_data_numeric()
 
 clf = tree.DecisionTreeClassifier()
 clf_fit = clf.fit(x, y)
