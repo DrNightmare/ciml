@@ -13,6 +13,7 @@ def _distance_key(example):
     return example[0]
 
 
+# Implementation of Algorithm 3 - KNN-Predict
 def knn_predict(train_data, train_targets, test_example, k):
     distances = [(get_euclidean_distance(train_example, test_example), target) for train_example, target in zip(train_data, train_targets)]
     k_nearest = heapq.nsmallest(k, distances, key=_distance_key)
