@@ -15,6 +15,8 @@ def kmeans(data, k):
     cluster_centers = data[np.random.choice(data.shape[0], 3, replace=False)]
     mean_changed = True
 
+    cluster_assignments = None
+
     while mean_changed:
         # assign example n to closest cluster
         cluster_assignments = get_closest_clusters(data, cluster_centers)
